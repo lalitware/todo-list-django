@@ -40,9 +40,12 @@
         </div>
 
         <div class="col-md-6">
+          {% comment %} Completed Tasks {% endcomment %}
           <h2>Completed Tasks</h2>
           <ul class="list-group">
-              <li class="list-group-item">No tasks found.</li>
+            {% for completed_task in completed_tasks %}
+            <li class="list-group-item">{{ completed_task.task }}</li>
+            {% endfor %}
           </ul>
         </div>
       </div>

@@ -59,7 +59,7 @@ Steps:
       ii. to add search functionality -> search_fields('task',)
     b. register it in the admin.py
 
-  17 Add task to database from frontend:
+  17. Add task to database from frontend:
     a. add path in the urlpatterns in urls.py of main package -> path('todo/', include('todo.urls'))
     b. create urls.py module in todo app.
     c. define path and views in urls.py of todo app
@@ -74,4 +74,8 @@ Steps:
       Task.objects.create(task=task)
       return redirect('home')
 
+  18. Listing of completed task:
+    a. write filter query in views.py of main package -> completed_tasks = Task.objects.filter(is_completed=True).order_by('-updated_at')
+    b. render it in home.html by passing the variable to the template
+    c. use forloop to display all the completed_tasks 
 
