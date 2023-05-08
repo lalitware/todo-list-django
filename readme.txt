@@ -79,8 +79,23 @@ Steps:
     b. render it in home.html by passing the variable to the template
     c. use forloop to display all the completed_tasks
 
-  19. Mark as done feature:
+  19. Mark as done and mark as undone feature:
     a. create a url path in urlpattern in urls.py of todo app.
-      path('mark_as_done/<int:pk/>', views.mark_as_done, name='mark_as_done')
-    b. create mark_as_done function in views.py of todo app.
+      path('mark_as_done/<int:pk>/', views.mark_as_done, name='mark_as_done'),
+      path('mark_as_done/<int:pk/>', views.mark_as_done, name='mark_as_done'),
+    b. create mark_as_done and mark_as_undone function in views.py of todo app.
+      # function to mark a task as done.
+      def mark_as_done(request, pk):
+          # fetch the data if it exists other wise give 404 error.
+          task = get_object_or_404(Task, pk=pk)
+          task.is_completed = True
+          task.save()
+          return redirect('home')
+
+      # function to mark a task as undone.
+      def mark_as_undone(request, pk):
+          task = get_object_or_404(Task, pk=pk)
+          task.is_completed = False
+          task.save()
+          return redirect('home')
 
