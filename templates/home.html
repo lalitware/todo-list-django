@@ -28,7 +28,7 @@
                     <label for="">{{ task.task }}</label>
                   </div>
                   <div class="flex-shrink-0">
-                    <button type="submit" class="btn btn-success me-1">Mark as completed</button>
+                    <button type="submit" onclick="window.location.href='{% url 'mark_as_done' task.pk %}';" class="btn btn-success me-1">Mark as completed</button>
                     <button type="submit" class="btn btn-primary me-1">Edit</button>
                     <button type="submit" class="btn btn-danger">Delete</button>
                   </div>
@@ -44,7 +44,14 @@
           <h2>Completed Tasks</h2>
           <ul class="list-group">
             {% for completed_task in completed_tasks %}
-            <li class="list-group-item">{{ completed_task.task }}</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="flex-grow-1">
+                <label for="">{{ completed_task.task }}</label>
+              </div>
+              <div class="flex-shrink-0">
+                <button type="submit" onclick="window.location.href='{% url 'mark_as_undone' completed_task.pk %}';" class="btn btn-secondary me-1">Mark as incomplete</button>
+              </div>
+            </li>
             {% endfor %}
           </ul>
         </div>

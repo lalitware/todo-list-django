@@ -77,5 +77,10 @@ Steps:
   18. Listing of completed task:
     a. write filter query in views.py of main package -> completed_tasks = Task.objects.filter(is_completed=True).order_by('-updated_at')
     b. render it in home.html by passing the variable to the template
-    c. use forloop to display all the completed_tasks 
+    c. use forloop to display all the completed_tasks
+
+  19. Mark as done feature:
+    a. create a url path in urlpattern in urls.py of todo app.
+      path('mark_as_done/<int:pk/>', views.mark_as_done, name='mark_as_done')
+    b. create mark_as_done function in views.py of todo app.
 
