@@ -108,3 +108,9 @@ Steps:
         <button type="submit" onclick="window.location.href='{% url 'edit_task' task.pk %}';" class="btn btn-primary me-1">Edit</button>
       e. on edit_task.html after form submission redirect to views.edit_task via edit_task url for saving the updated task.
 
+    21. Delete task feature:
+      a. create a path in urls.py of todo app.
+        path('delete_task/<int:pk>/', views.delete_task, name='delete_task')
+      c. add this url in delete button of home.html to redirect views.delete_task via delete_task url
+        <button type="submit" class="btn btn-danger" onclick="window.location.href='{% url 'delete_task' task.pk %}';">Delete</button>
+

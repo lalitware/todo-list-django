@@ -36,7 +36,7 @@
                     <button type="submit" onclick="window.location.href='{% url 'edit_task' task.pk %}';" class="btn btn-primary me-1">Edit task</button>   
                     
                     {% comment %} Delete Button {% endcomment %}
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="window.location.href='{% url 'delete_task' task.pk %}';">Delete</button>
                   </div>
                 </li>
               </ul>
