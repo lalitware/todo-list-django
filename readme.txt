@@ -98,4 +98,13 @@ Steps:
           task.is_completed = False
           task.save()
           return redirect('home')
+    
+    20. Edit task feature:
+      a. create a path in urls.py of todo app.
+        path('edit_task/<int:pk>/', views.edit_task, name='edit_task')
+      b. cerate edit_task function that renders edit_task.html in views.py of todo app.
+      c. create edit_task.html template
+      d. add this url in edit button of home.html to redirect to edit_task.html after clicking on update button.
+        <button type="submit" onclick="window.location.href='{% url 'edit_task' task.pk %}';" class="btn btn-primary me-1">Edit</button>
+      e. on edit_task.html after form submission redirect to views.edit_task via edit_task url for saving the updated task.
 
